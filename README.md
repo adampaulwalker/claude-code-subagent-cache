@@ -6,7 +6,7 @@ A small script to measure how much of your Claude Code token spend goes to subag
 
 On a Claude subscription, within the plan's included usage, Claude Code gives the main conversation a 1-hour prompt cache. Once you draw on usage credits, or with an API key, the main conversation gets 5 minutes too. Subagents, workflows and teammates get a 5-minute cache by default ([prompt caching docs](https://code.claude.com/docs/en/prompt-caching)). A subagent that waits more than 5 minutes on a test run, a build or another agent loses its cache, and its next call writes its whole context to the cache again.
 
-On my machine, subagent calls that match the idle-reread rule below came to 29% of my token spend over 4 days, priced at API list rates, out of the 2 weeks of logs I had. That's one person's measurement with a heavy subagent workload, so run the script to get your own number.
+On my machine, subagent calls that match the idle-reread rule below came to 28% of my token spend over the 4 days before I changed the settings, priced at API list rates. In the first 11 hours or so after the change, idle rereads fell to 1.3% and every subagent cache write used the 1-hour TTL, though that's a short window. That's one person's measurement with a heavy subagent workload, so run the script to get your own number.
 
 ## Measure
 
